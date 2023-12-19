@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chat App</title>
+        <link rel="icon" href="/img/favicon.png">
+        <link rel="stylesheet" href="/css/styles.min.css">
+    </head>
+    <body>
+       <div class="centered-form">
+           <div class="centered-form__box">
+               <h1>Join</h1>
+               <form id action="/chat.html">
+                    <label>Display name</label>
+                    <input type="text" name="username" placeholder="Display name" required>
+                    <div id="dropdown">
+
+                    </div>
+                    <button>Join</button>
+               </form>
+           </div>
+       </div>
+       <script id="dropdown-template" type="text/html">
+            <label>Room</label>
+            <input id="dropdown-id" type="text" name="room" placeholder="Room" list="rooms" required autocomplete="off" >
+            <datalist id="rooms">
+                {{#rooms}}
+                <option value="{{.}}">{{.}}</option>
+                {{/rooms}}
+            </datalist>
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/js/mainpage.js"></script>
+    </body>
+</html>
